@@ -21,6 +21,7 @@ namespace API_TRIAL
         {
             InitializeComponent();
 
+            //CONNECTS TO CLOUDINARY ON JERZEY'S ACCOUNT
             var account = new Account(
                 "dlwwvseit",
                 "688359832119721",
@@ -30,6 +31,7 @@ namespace API_TRIAL
             cloudinary = new Cloudinary(account);
         }
 
+        //OPENS THE IMAGE SELECTOR
         private void SelectImage_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new Microsoft.Win32.OpenFileDialog
@@ -44,6 +46,7 @@ namespace API_TRIAL
             }
         }
 
+        //SEARCHES FOR CAMERA || RECORDS FRAMES
         private void StartCamera_Click(object sender, RoutedEventArgs e)
         {
             for (int cameraIndex = 0; cameraIndex < 5; cameraIndex++)
@@ -88,6 +91,7 @@ namespace API_TRIAL
             MessageBox.Show("No camera opened at indexes 0-4.");
         }
 
+        // CAPTURES THE FRAME OF THE CAMERA WHEN ITS CLICKED, TURNS IT INTO A FILE
         private void TakePicture_Click(object sender, RoutedEventArgs e)
         {
             if (latestFrame == null || latestFrame.Empty())
@@ -103,6 +107,7 @@ namespace API_TRIAL
             UploadImage(filePath);
         }
 
+        //UPLOADS TO CLOUDINARY
         private void UploadImage(string filePath)
         {
             var uploadParams = new ImageUploadParams
@@ -112,11 +117,12 @@ namespace API_TRIAL
 
             var uploadResult = cloudinary.Upload(uploadParams);
 
-            string imageUrl = uploadResult.SecureUrl.ToString();
+            string imageUrl = uploadResult.SecureUrl.ToString(); //GENERATES THE LINK TO PUT INTO DATABASE
 
             MessageBox.Show("Upload worked!\n\nImage URL:\n" + imageUrl);
         }
 
+        //BASTA CLOSED
         protected override void OnClosed(EventArgs e)
         {
             cameraToken?.Cancel();
