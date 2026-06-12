@@ -1,0 +1,39 @@
+﻿<Window x:Class="API_TRIAL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:API_TRIAL"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button
+            Margin="0, 320, 0, 0"
+    Content="Select image"
+    Width="140"
+    Height="35"
+    Click="SelectImage_Click" />
+        
+        
+
+        <StackPanel Margin="0, 30, 0, 0">
+            <Image
+        x:Name="CameraPreview"
+        Width="320"
+        Height="240"
+        Stretch="Uniform" />
+
+            <Button
+        Content="Start camera"
+        Width="140"
+        Height="35"
+        Click="StartCamera_Click" />
+
+            <Button
+        Content="Take picture"
+        Width="140"
+        Height="35"
+        Click="TakePicture_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
