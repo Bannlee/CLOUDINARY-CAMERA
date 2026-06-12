@@ -3,10 +3,10 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using CloudinaryDotNet;
-using CloudinaryDotNet.Actions;
-using OpenCvSharp;
-using OpenCvSharp.WpfExtensions;
+using CloudinaryDotNet; //CLOUDINARY
+using CloudinaryDotNet.Actions; //CLOUDINARY
+using OpenCvSharp; //FOR CAMERA
+using OpenCvSharp.WpfExtensions; //FOR CAMERA
 
 namespace API_TRIAL
 {
